@@ -161,6 +161,11 @@ class Laravel extends TableSchemaAdapter
                 $column->setNotnull(false);
             }
 
+            if(isset($attributes['autoIncrement']) && $attributes['autoIncrement']){
+                $index_name = $table->getName().'_'.$column_name.'_primary_key';
+                $table->setPrimaryKey([$column_name], $index_name);
+            }
+
             if($index){
                 $index_name = $table->getName().'_'.$column_name.'_index';
                 $table->addIndex([$column_name], $index_name);
