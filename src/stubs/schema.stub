@@ -1,0 +1,13 @@
+<?php
+
+use SchemaManager\SchemaDefinition;
+
+class {class-name} extends SchemaDefinition
+{
+    protected $table_name = '{table-name}';
+
+    public function schema($table)
+    {
+        {id-column}
+    }
+}

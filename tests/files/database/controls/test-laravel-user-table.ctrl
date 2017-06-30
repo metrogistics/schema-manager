@@ -1,0 +1,13 @@
+<?php
+
+use SchemaManager\SchemaDefinition;
+
+class UsersTableSchema extends SchemaDefinition
+{
+    protected $table_name = 'users';
+
+    public function schema($table)
+    {
+        $table->increments('id');
+    }
+}

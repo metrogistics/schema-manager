@@ -1,0 +1,26 @@
+{
+    "name": "pstephan1187/laravel-schema-manager",
+    "autoload": {
+        "psr-4": {
+            "SchemaManager\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/Adapters/Laravel/Sql/LaravelTrait.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Patrick Stephan",
+            "email": "pstephan1187@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/dbal": "^2.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.4",
+        "phpunit/phpunit": "^6.2"
+    }
+}
