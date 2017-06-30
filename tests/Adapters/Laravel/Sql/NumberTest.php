@@ -68,7 +68,8 @@ class NumberTest extends TestCase
                 'id_2 SMALLINT UNSIGNED NOT NULL, '.
                 'id_3 SMALLINT DEFAULT 2 NOT NULL, '.
                 'id_4 SMALLINT UNSIGNED NOT NULL, '.
-                'id_5 SMALLINT UNSIGNED DEFAULT 1 NOT NULL'.
+                'id_5 SMALLINT UNSIGNED DEFAULT 1 NOT NULL, '.
+                'PRIMARY KEY(id_0)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
     }
@@ -91,7 +92,8 @@ class NumberTest extends TestCase
                 'id_2 INT UNSIGNED NOT NULL, '.
                 'id_3 INT DEFAULT 2 NOT NULL, '.
                 'id_4 INT UNSIGNED NOT NULL, '.
-                'id_5 INT UNSIGNED DEFAULT 1 NOT NULL'.
+                'id_5 INT UNSIGNED DEFAULT 1 NOT NULL, '.
+                'PRIMARY KEY(id_0)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
     }
@@ -114,7 +116,8 @@ class NumberTest extends TestCase
                 'id_2 INT UNSIGNED NOT NULL, '.
                 'id_3 INT DEFAULT 2 NOT NULL, '.
                 'id_4 INT UNSIGNED NOT NULL, '.
-                'id_5 INT UNSIGNED DEFAULT 1 NOT NULL'.
+                'id_5 INT UNSIGNED DEFAULT 1 NOT NULL, '.
+                'PRIMARY KEY(id_0)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
     }
@@ -137,7 +140,8 @@ class NumberTest extends TestCase
                 'id_2 BIGINT UNSIGNED NOT NULL, '.
                 'id_3 BIGINT DEFAULT 2 NOT NULL, '.
                 'id_4 BIGINT UNSIGNED NOT NULL, '.
-                'id_5 BIGINT UNSIGNED DEFAULT 1 NOT NULL'.
+                'id_5 BIGINT UNSIGNED DEFAULT 1 NOT NULL, '.
+                'PRIMARY KEY(id_0)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
     }

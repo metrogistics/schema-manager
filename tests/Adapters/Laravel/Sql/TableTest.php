@@ -22,7 +22,8 @@ class TableTest extends TestCase
                 'email VARCHAR(255) NOT NULL, '.
                 'phone VARCHAR(10) NOT NULL, '.
                 'UNIQUE INDEX users_email_unique (email), '.
-                'INDEX users_phone_index (phone)'.
+                'INDEX users_phone_index (phone), '.
+                'PRIMARY KEY(id)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
 
@@ -36,7 +37,7 @@ class TableTest extends TestCase
 
         $this->assertEquals([
             'CREATE TABLE users ('.
-                'id INT UNSIGNED AUTO_INCREMENT NOT NULL'.
+                'id INT UNSIGNED AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)'.
             ') DEFAULT CHARACTER SET ascii COLLATE latin1_german1_ci ENGINE = MyISAM'
         ], $statements);
     }
@@ -51,7 +52,7 @@ class TableTest extends TestCase
 
         $this->assertEquals([
             'CREATE TEMPORARY TABLE users ('.
-                'id INT UNSIGNED AUTO_INCREMENT NOT NULL'.
+                'id INT UNSIGNED AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
     }
@@ -119,6 +120,8 @@ class TableTest extends TestCase
         })->compareToSchema($this->getTestSchema())->toSql(new MySqlPlatform);
 
         $this->assertEquals([
+            'ALTER TABLE users MODIFY id INT UNSIGNED NOT NULL',
+            'ALTER TABLE users DROP PRIMARY KEY',
             'ALTER TABLE users CHANGE id id INT NOT NULL',
             'ALTER TABLE users ADD PRIMARY KEY (last_name)'
         ], $statements);
@@ -232,7 +235,7 @@ class TableTest extends TestCase
 
         $this->assertEquals([
             'CREATE TABLE users ('.
-                'id INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT \'The ID.\''.
+                'id INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT \'The ID.\', PRIMARY KEY(id)'.
             ') DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB'
         ], $statements);
     }
