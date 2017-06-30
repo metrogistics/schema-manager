@@ -1,5 +1,7 @@
 {
-    "name": "pstephan1187/laravel-schema-manager",
+    "name": "pstephan1187/schema-manager",
+    "description": "A package that allows you to write a schema definition files and sync your database to them.",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "SchemaManager\\": "src/"
