@@ -10,7 +10,7 @@ use SchemaManager\TableSchemaAdapter;
 class MakeSchema extends Command
 {
     protected $signature = 'schema-manager:make-schema {name} {--directory=}';
-    protected $description = 'Compares your database against your definition files.';
+    protected $description = 'Creates a schema definition file for a table.';
 
     public function handle()
     {
