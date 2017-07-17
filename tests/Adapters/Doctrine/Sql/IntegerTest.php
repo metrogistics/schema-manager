@@ -79,41 +79,34 @@ class IntegerTest extends TestCase
         ], $statements);
     }
 
-    public function test_update_table_integers_sql()
-    {
-        $this->createTestTable();
-
-        $statements = $this->newManager()->addTable('test_table', function(Table $table){
-            // $table->addColumn('id_1', 'integer', ['unsigned' => true]);
-            $table->addColumn('id_2', 'smallint', ['default' => 0]);
-            // $table->addColumn('id_3', 'bigint');
-            // $table->addColumn('id_4', 'bigint', ['customSchemaOptions' => ['unique' => true]]);
-
-            // $table->addColumn('id_1', 'bigint');
-            // $table->addColumn('id_2', 'bigint', ['unsigned' => true]);
-            // $table->addColumn('id_3', 'bigint', ['default' => 2]);
-            // $table->addColumn('id_4', 'bigint', ['customSchemaOptions' => ['unique' => true]]);
-        })->getSqlFor($this->connection);
-
-        dd($statements);
-
-        $this->assertEquals([
-            'CREATE TABLE users ('.
-                'id_1 BIGINT NOT NULL, '.
-                'id_2 BIGINT UNSIGNED NOT NULL, '.
-                'id_3 BIGINT DEFAULT 2 NOT NULL, '.
-                'id_4 BIGINT NOT NULL UNIQUE'.
-            ')'
-        ], $statements);
-    }
-
-    protected function createTestTable()
-    {
-        $this->newManager()->addTable('test_table', function(Table $table){
-            $table->addColumn('id_1', 'integer', ['unsigned' => true]);
-            $table->addColumn('id_2', 'smallint', ['default' => 1]);
-            $table->addColumn('id_3', 'bigint');
-            $table->addColumn('id_4', 'bigint', ['customSchemaOptions' => ['unique' => true]]);
-        })->performMigrationOnDatabase($this->connection);
-    }
+    // public function test_update_table_integers_sql()
+    // {
+    //     $this->createTestTable();
+    //
+    //     $statements = $this->newManager()->addTable('test_table', function(Table $table){
+    //         $table->addColumn('id_1', 'integer', ['unsigned' => true]);
+    //         $table->addColumn('id_2', 'smallint', ['default' => 0]);
+    //         $table->addColumn('id_3', 'bigint');
+    //         $table->addColumn('id_4', 'bigint', ['customSchemaOptions' => ['unique' => true]]);
+    //     })->getSqlFor($this->connection);
+    //
+    //     $this->assertEquals([
+    //         'CREATE TABLE users ('.
+    //             'id_1 BIGINT NOT NULL, '.
+    //             'id_2 BIGINT UNSIGNED NOT NULL, '.
+    //             'id_3 BIGINT DEFAULT 2 NOT NULL, '.
+    //             'id_4 BIGINT NOT NULL UNIQUE'.
+    //         ')'
+    //     ], $statements);
+    // }
+    //
+    // protected function createTestTable()
+    // {
+    //     $this->newManager()->addTable('test_table', function(Table $table){
+    //         $table->addColumn('id_1', 'integer', ['unsigned' => true]);
+    //         $table->addColumn('id_2', 'smallint', ['default' => 1]);
+    //         $table->addColumn('id_3', 'bigint');
+    //         $table->addColumn('id_4', 'bigint', ['customSchemaOptions' => ['unique' => true]]);
+    //     })->performMigrationOnDatabase($this->connection);
+    // }
 }
