@@ -8,7 +8,7 @@ use SchemaManager\Manager;
 
 class Compare extends Command
 {
-    protected $signature = 'schema-manager:compare {--connection} {--directory=} {--R|run} {--D|include-deletes}';
+    protected $signature = 'schema-manager:compare {--connection=} {--directory=} {--R|run} {--D|include-deletes}';
     protected $description = 'Compares your database against your definition files.';
 
     public function handle()
