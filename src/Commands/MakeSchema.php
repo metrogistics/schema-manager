@@ -24,6 +24,15 @@ class MakeSchema extends Command
         $class_name = studly_case($name).'TableSchema';
         $filename = realpath($directory).'/'.$class_name.'.php';
         $filesystem = new Filesystem();
+
+        if($filesystem->exists($filename)){
+            $overwrite = $this->confirm('A schema file already exists at '.$filename.'. Would you like to overwrite it?');
+
+            if(!$overwrite){
+                return;
+            }
+        }
+
         $stub = $this->processStub($class_name);
 
         $filesystem->put($filename, $stub);
