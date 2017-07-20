@@ -2,7 +2,7 @@
 
 namespace SchemaManager\DbTypes;
 
-use Doctrine\DBAL\Platforms\MySqlPlatform;
+use Doctrine\DBAL\Platforms\MySQL57Platform;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
@@ -12,7 +12,7 @@ class JsonType extends Type
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        if($platform instanceof MySqlPlatform){
+        if($platform instanceof MySQL57Platform){
             return "JSON";
         }
 
@@ -22,5 +22,10 @@ class JsonType extends Type
     public function getName()
     {
         return self::JSON;
+    }
+
+    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    {
+        return true;
     }
 }

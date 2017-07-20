@@ -12,8 +12,11 @@ class TimestampType extends Type
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
+        // dump($fieldDeclaration);
         if($platform instanceof MySqlPlatform){
-            return "TIMESTAMP";
+            $nullable = !$fieldDeclaration['notnull'];
+
+            return "TIMESTAMP".($nullable ? ' NULL' : '');
         }
 
         return "VARCHAR(11)";
@@ -22,5 +25,10 @@ class TimestampType extends Type
     public function getName()
     {
         return self::TIMESTAMP;
+    }
+
+    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    {
+        return true;
     }
 }

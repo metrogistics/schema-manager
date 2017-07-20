@@ -23,4 +23,9 @@ class CharType extends Type
     {
         return self::CHAR;
     }
+
+    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    {
+        return true;
+    }
 }
