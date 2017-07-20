@@ -152,6 +152,11 @@ class Laravel extends TableSchemaAdapter
                     if(isset($attributes['useCurrent']) && $attributes['useCurrent']){
                         $attributes['default'] = 'CURRENT_TIMESTAMP';
                     }
+
+                    if (!$nullable && (!isset($attributes['default']) || $attributes['default'] === null)) {
+                        $attributes['default'] = 0;
+                    }
+
                     break;
             }
 
